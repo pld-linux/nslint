@@ -1,28 +1,32 @@
 Summary:	Checks DNS files for errors
 Name:		nslint
 Version:	2.0.1a1
-Release:	3
-Copyright:	BSD
-Group:		Utilities/Network
-Source:		ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
-Patch:		nslint-makefile.patch
+Release:	4
+License:	BSD
+Group:		Networking/Utilities
+Group(pl):	Sieciowe/Narzêdzia
+Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
+Patch0:		%{name}-makefile.patch
+Patch1:		%{name}-do_not_check_for_libsnl.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-nslint is a lint-like program that checks DNS files for errors. 
-DNS or Domain Name System generally maps names to IP addresses
-and e-mail addresses in a hierarchical fashion.
+nslint is a lint-like program that checks DNS files for errors. DNS or
+Domain Name System generally maps names to IP addresses and e-mail
+addresses in a hierarchical fashion.
 
-Errors detected include missing trailing dots, illegal characters
-(RFC 1034), A records without matching PTR records and vice-versa,
-duplicat names in a subnet, duplicate names for an address,
-names with cname records (RFC 1033) missing quotes, and unknown keywords.
+Errors detected include missing trailing dots, illegal characters (RFC
+1034), A records without matching PTR records and vice-versa, duplicat
+names in a subnet, duplicate names for an address, names with cname
+records (RFC 1033) missing quotes, and unknown keywords.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
+autoconf
 LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
