@@ -2,7 +2,7 @@ Summary:	Checks DNS files for errors
 Summary(pl):	Wyszukiwanie b³êdów w plikach DNS
 Name:		nslint
 Version:	2.0.1a1
-Release:	5
+Release:	6
 License:	BSD
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
