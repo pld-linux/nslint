@@ -1,0 +1,18 @@
+diff -Nru nslint-2.0.1a1/Makefile.in nslint-2.0.1a1.new/Makefile.in
+--- nslint-2.0.1a1/Makefile.in	Fri Oct 29 18:42:33 1999
++++ nslint-2.0.1a1.new/Makefile.in	Fri Oct 29 18:42:51 1999
+@@ -87,10 +87,12 @@
+ 	sed -e 's/.*/char version[] = "&";/' $(srcdir)/VERSION > $@
+ 
+ install: force
+-	$(INSTALL) -m 555 -o bin -g bin $(PROG) $(DESTDIR)$(BINDEST)/$(PROG)
++	./install-sh -d $(DESTDIR)$(BINDEST)
++	$(INSTALL) -m 555 $(PROG) $(DESTDIR)$(BINDEST)/$(PROG)
+ 
+ install-man: force
+-	$(INSTALL) -m 444 -o bin -g bin $(srcdir)/$(PROG).8 \
++	./install-sh -d $(DESTDIR)$(MANDEST)/man8
++	$(INSTALL) -m 444 $(srcdir)/$(PROG).8 \
+ 	    $(DESTDIR)$(MANDEST)/man8/$(PROG).8
+ 
+ clean: force
