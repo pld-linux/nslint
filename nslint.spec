@@ -6,6 +6,7 @@ Release:	6
 License:	BSD
 Group:		Networking/Utilities
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
+# Source0-md5:	e5b2c9612d919e6515786597c9bd0884
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-do_not_check_for_libsnl.patch
 BuildRequires:	autoconf
