@@ -1,0 +1,11 @@
+diff -Nru nslint-2.0.1a1/configure.in nslint-2.0.1a1.new/configure.in
+--- nslint-2.0.1a1/configure.in	Wed Jul 23 09:55:55 1997
++++ nslint-2.0.1a1.new/configure.in	Wed Aug 23 00:01:05 2000
+@@ -21,7 +21,6 @@
+ AC_CHECK_HEADERS(fcntl.h malloc.h memory.h)
+ 
+ AC_REPLACE_FUNCS(strerror)
+-AC_CHECK_LIB(nsl, main)
+ AC_CHECK_LIB(socket, main)
+ 
+ AC_CHECK_TYPE(int32_t, int)
