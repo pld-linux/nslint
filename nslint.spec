@@ -25,7 +25,7 @@ names with cname records (RFC 1033) missing quotes, and unknown keywords.
 %build
 LDFLAGS="-s"; export LDFLAGS
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
