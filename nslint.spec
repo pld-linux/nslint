@@ -1,15 +1,12 @@
-Summary: Checks DNS files for errors
-Name: nslint
-Version: 2.0.1a1
-Release: 2
-Copyright: BSD
-Group: Utilities/Network
-Source: ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
-Packager: Dan E. Anderson http://www.dan.pmbc.com/
-Distribution: Dan E. Anderson http://www.dan.pmbc.com/
-Vendor: Dan E. Anderson http://www.dan.pmbc.com/
-Buildroot: /var/tmp/nslint-root
-Prefix: /usr
+Summary:	Checks DNS files for errors
+Name:		nslint
+Version:	2.0.1a1
+Release:	3
+Copyright:	BSD
+Group:		Utilities/Network
+Source:		ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
+Patch:		nslint-makefile.patch
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 nslint is a lint-like program that checks DNS files for errors. 
@@ -23,26 +20,24 @@ names with cname records (RFC 1033) missing quotes, and unknown keywords.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-CFLAGS=$RPM_OPT_FLAGS
-./configure
+LDFLAGS="-s"; export LDFLAGS
+%configure
 make
 
 %install
-mkdir -p $RPM_BUILD_ROOT/usr/sbin/ $RPM_BUILD_ROOT/usr/man/man8/
-install -m755 -c -s nslint $RPM_BUILD_ROOT/usr/sbin
-install -m644 -c nslint.8 $RPM_BUILD_ROOT/usr/man/man8
+rm -rf $RPM_BUILD_ROOT
+make install install-man DESTDIR=$RPM_BUILD_ROOT
 
-%clean 
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* CHANGES README
+
+%clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
-%doc CHANGES FILES INSTALL README VERSION
-/usr/sbin/nslint
-/usr/man/man8/nslint.8
-
-%changelog 
-* Tue Jun 22 1999 Dan Anderson <danx@cts.com>
-- Created package
+%defattr(644,root,root,755)
+%doc *gz
+%attr(755,root,root) %{_bindir}/nslint
+%{_mandir}/man8/*
