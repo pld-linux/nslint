@@ -5,10 +5,6 @@ Version:	2.0.1a1
 Release:	6
 License:	BSD
 Group:		Networking/Utilities
-Group(de):	Netzwerkwesen/Werkzeuge
-Group(es):	Red/Utilitarios
-Group(pl):	Sieciowe/Narzêdzia
-Group(pt_BR):	Rede/Utilitários
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-do_not_check_for_libsnl.patch
