@@ -6,7 +6,7 @@ Copyright:	BSD
 Group:		Utilities/Network
 Source:		ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
 Patch:		nslint-makefile.patch
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 nslint is a lint-like program that checks DNS files for errors. 
