@@ -1,9 +1,10 @@
 Summary:	Checks DNS files for errors
 Name:		nslint
 Version:	2.0.1a1
-Release:	4
+Release:	5
 License:	BSD
 Group:		Networking/Utilities
+Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
 Patch0:		%{name}-makefile.patch
@@ -27,7 +28,6 @@ records (RFC 1033) missing quotes, and unknown keywords.
 
 %build
 autoconf
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -35,7 +35,7 @@ LDFLAGS="-s"; export LDFLAGS
 rm -rf $RPM_BUILD_ROOT
 %{__make} install install-man DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* CHANGES README
+gzip -9nf CHANGES README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
