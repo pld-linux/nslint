@@ -29,7 +29,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install install-man DESTDIR=$RPM_BUILD_ROOT
+%{__make} install install-man DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* CHANGES README
 
