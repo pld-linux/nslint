@@ -1,14 +1,18 @@
 Summary:	Checks DNS files for errors
+Summary(pl):	Wyszukiwanie b³êdów w plikach DNS
 Name:		nslint
 Version:	2.0.1a1
 Release:	5
 License:	BSD
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
+Group(es):	Red/Utilitarios
 Group(pl):	Sieciowe/Narzêdzia
+Group(pt_BR):	Rede/Utilitários
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-do_not_check_for_libsnl.patch
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -17,9 +21,20 @@ Domain Name System generally maps names to IP addresses and e-mail
 addresses in a hierarchical fashion.
 
 Errors detected include missing trailing dots, illegal characters (RFC
-1034), A records without matching PTR records and vice-versa, duplicat
-names in a subnet, duplicate names for an address, names with cname
-records (RFC 1033) missing quotes, and unknown keywords.
+1034), A records without matching PTR records and vice-versa,
+duplicate names in a subnet, duplicate names for an address, names
+with CNAME records (RFC 1033) missing quotes, and unknown keywords.
+
+%description -l pl
+nslint jest programem podobnym do linta, który wyszukuje b³êdy w
+plikach DNS. DNS jest systemem odwzorowuj±cym nazwy na adresy IP w
+sposób hierarchiczny.
+
+Wyszukiwane b³êdy to brakuj±ce kropki koñcz±ce, nielegalne znaki (RFC
+1034), rekordy A bez odpowiadaj±cych rekordów PTR (i odwrotnie),
+powtórzone nazwy w podsieci, powtórzone nazwy dla adresu, nazwy z
+rekordami CNAME (RFC 1033), brakuj±ce cudzys³owy, nieznane s³owa
+kluczowe.
 
 %prep
 %setup -q
