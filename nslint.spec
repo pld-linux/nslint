@@ -38,7 +38,7 @@ kluczowe.
 %patch1 -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
