@@ -1,15 +1,16 @@
 Summary:	Checks DNS files for errors
 Summary(pl):	Wyszukiwanie b³êdów w plikach DNS
 Name:		nslint
-Version:	2.0.1a1
-Release:	6
+Version:	2.1a3
+Release:	1
 License:	BSD
 Group:		Networking/Utilities
-Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.Z
-# Source0-md5:	e5b2c9612d919e6515786597c9bd0884
+Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.gz
+# Source0-md5:	87f78dd8680a4abbc480d814172a468e
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-do_not_check_for_libsnl.patch
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,13 +40,16 @@ kluczowe.
 %patch1 -p1
 
 %build
+cp -f /usr/share/automake/config.* .
 %{__autoconf}
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install install-man DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install install-man \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
