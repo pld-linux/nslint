@@ -1,12 +1,12 @@
 Summary:	Checks DNS files for errors
 Summary(pl):	Wyszukiwanie b³êdów w plikach DNS
 Name:		nslint
-Version:	2.1a3
+Version:	2.1a6
 Release:	1
 License:	BSD
 Group:		Networking/Utilities
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.gz
-# Source0-md5:	87f78dd8680a4abbc480d814172a468e
+# Source0-md5:	ebd860efae831147b095f53d81fb9947
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-do_not_check_for_libsnl.patch
 BuildRequires:	autoconf
