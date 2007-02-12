@@ -1,5 +1,5 @@
 Summary:	Checks DNS files for errors
-Summary(pl):	Wyszukiwanie b酬d體 w plikach DNS
+Summary(pl.UTF-8):   Wyszukiwanie b艂臋d贸w w plikach DNS
 Name:		nslint
 Version:	2.1a6
 Release:	1
@@ -23,15 +23,15 @@ Errors detected include missing trailing dots, illegal characters (RFC
 duplicate names in a subnet, duplicate names for an address, names
 with CNAME records (RFC 1033) missing quotes, and unknown keywords.
 
-%description -l pl
-nslint jest programem podobnym do linta, kt髍y wyszukuje b酬dy w
-plikach DNS. DNS jest systemem odwzorowuj眂ym nazwy na adresy IP w
-spos骲 hierarchiczny.
+%description -l pl.UTF-8
+nslint jest programem podobnym do linta, kt贸ry wyszukuje b艂臋dy w
+plikach DNS. DNS jest systemem odwzorowuj膮cym nazwy na adresy IP w
+spos贸b hierarchiczny.
 
-Wyszukiwane b酬dy to brakuj眂e kropki ko馽z眂e, nielegalne znaki (RFC
-1034), rekordy A bez odpowiadaj眂ych rekord體 PTR (i odwrotnie),
-powt髍zone nazwy w podsieci, powt髍zone nazwy dla adresu, nazwy z
-rekordami CNAME (RFC 1033), brakuj眂e cudzys硂wy, nieznane s硂wa
+Wyszukiwane b艂臋dy to brakuj膮ce kropki ko艅cz膮ce, nielegalne znaki (RFC
+1034), rekordy A bez odpowiadaj膮cych rekord贸w PTR (i odwrotnie),
+powt贸rzone nazwy w podsieci, powt贸rzone nazwy dla adresu, nazwy z
+rekordami CNAME (RFC 1033), brakuj膮ce cudzys艂owy, nieznane s艂owa
 kluczowe.
 
 %prep
