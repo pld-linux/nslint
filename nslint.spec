@@ -1,5 +1,5 @@
 Summary:	Checks DNS files for errors
-Summary(pl.UTF-8):   Wyszukiwanie błędów w plikach DNS
+Summary(pl.UTF-8):	Wyszukiwanie błędów w plikach DNS
 Name:		nslint
 Version:	2.1a6
 Release:	1
