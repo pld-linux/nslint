@@ -1,18 +1,25 @@
-diff -Nru nslint-2.0.1a1/Makefile.in nslint-2.0.1a1.new/Makefile.in
---- nslint-2.0.1a1/Makefile.in	Fri Oct 29 18:42:33 1999
-+++ nslint-2.0.1a1.new/Makefile.in	Fri Oct 29 18:42:51 1999
-@@ -87,10 +87,12 @@
+--- nslint-3.0a2/Makefile.in.org	2010-06-07 09:27:29.000000000 +0000
++++ nslint-3.0a2/Makefile.in	2010-06-07 09:28:14.000000000 +0000
+@@ -29,7 +29,7 @@
+ # Pathname of directory to install the binary
+ BINDEST = @bindir@
+ # Pathname of directory to install the man page
+-MANDEST = @prefix@/man
++MANDEST = @prefix@/share/man
+ # The root of the directory tree for read-only
+ datarootdir = @datarootdir@
+ 
+@@ -96,9 +96,11 @@
  	sed -e 's/.*/char version[] = "&";/' $(srcdir)/VERSION > $@
  
  install: force
 -	$(INSTALL) -m 555 -o bin -g bin $(PROG) $(DESTDIR)$(BINDEST)/$(PROG)
++	./install-sh -d $(DESTDIR)$(MANDEST)/man8
 +	./install-sh -d $(DESTDIR)$(BINDEST)
 +	$(INSTALL) -m 555 $(PROG) $(DESTDIR)$(BINDEST)/$(PROG)
- 
- install-man: force
--	$(INSTALL) -m 444 -o bin -g bin $(srcdir)/$(PROG).8 \
-+	./install-sh -d $(DESTDIR)$(MANDEST)/man8
-+	$(INSTALL) -m 444 $(srcdir)/$(PROG).8 \
- 	    $(DESTDIR)$(MANDEST)/man8/$(PROG).8
+ 	@diff $(srcdir)/$(PROG).8 $(DESTDIR)$(MANDEST)/man8 >/dev/null 2>&1 || \
+-		$(INSTALL) -m 444 -o bin -g bin $(srcdir)/$(PROG).8 $(DESTDIR)$(MANDEST)/man8/
++		$(INSTALL) -m 444 $(srcdir)/$(PROG).8 $(DESTDIR)$(MANDEST)/man8/
  
  clean: force
+ 	rm -f $(CLEANFILES)
