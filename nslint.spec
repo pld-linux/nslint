@@ -2,7 +2,7 @@ Summary:	Checks DNS files for errors
 Summary(pl.UTF-8):	Wyszukiwanie błędów w plikach DNS
 Name:		nslint
 Version:	3.0a2
-Release:	1
+Release:	2
 License:	BSD
 Group:		Networking/Utilities
 Source0:	ftp://ftp.ee.lbl.gov/%{name}-%{version}.tar.gz
