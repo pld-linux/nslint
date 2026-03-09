@@ -1,0 +1,10 @@
+--- nslint-3.0a2/savestr.c.orig	2006-03-09 02:27:11.000000000 +0000
++++ nslint-3.0a2/savestr.c	2024-01-01 00:00:00.000000000 +0000
+@@ -28,6 +28,7 @@
+
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+
+ #include "gnuc.h"
+ #ifdef HAVE_OS_PROTO_H
